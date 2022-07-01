@@ -33,8 +33,8 @@
           this.removeItem = this.removeItem.bind(this);
           this.editItem = this.editItem.bind(this);
         }
+        
         /* EVENT HANDLERS */
-       
         addItem () {
           this.props.dispatch(addItemAction())
         }
@@ -71,6 +71,7 @@
           </div>);
         }
       }
+      
       /* IGNORE THIS */
       // Just the information that appears below the demo
       class InfoBox extends Component {
@@ -82,16 +83,15 @@
           </div>);
         }
       }
-      /* MAP STATE TO PROPS */
       
+      /* map state to props */
       const mapStateToProps = (state) => {
         return {
           items: state.items,
         }
       }
       
-      /*Action creators*/
-
+      /*ACTION CREATORS*/
        const addItemAction = () => {
         return {
           type: 'ADD_ITEM'
@@ -112,10 +112,8 @@
           }
         }
       }
-      
-//To DO
 
-      /* Reducers */
+      /* REDUCERS */
       const appReducer = (state = {items: []}, action) => {
         let items = state.items.slice();
         console.log('Actions', action); 
@@ -137,20 +135,6 @@
         console.log('Current State', newState);
         return newState;
       }
-
-
-
-
-//TO DO
-
-      /* MAP STATE TO PROPS */
-     
-      //To DO
-      const mapStateToProps = (state) => {
-        return {
-          items: state.items,
-        }
-      }
      
       /* REDUX STORE */
       let store = createStore(appReducer, {
@@ -162,8 +146,6 @@
         ]
       }, window.devToolsExtension ? window.devToolsExtension() : undefined)
 
-      
-     //TO DO
       // We want to use Redux connect to attach our mapStateToProps to our ListTable (React Component)
       const ListApp = connect(
         mapStateToProps
