@@ -82,7 +82,13 @@
           </div>);
         }
       }
+      /* MAP STATE TO PROPS */
       
+      const mapStateToProps = (state) => {
+        return {
+          items: state.items,
+        }
+      }
       
       /*Action creators*/
 
